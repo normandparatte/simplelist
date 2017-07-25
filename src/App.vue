@@ -1,14 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <MenuPrincipal></MenuPrincipal>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import MenuPrincipal from '@/components/MenuPrincipal.vue';
 export default {
-  name: 'app'
-}
+  name: 'app',
+  components: {
+    MenuPrincipal
+  }
+};
 </script>
 
 <style>
