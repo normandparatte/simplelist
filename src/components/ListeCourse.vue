@@ -13,7 +13,7 @@ export default {
   created () {
     /* eslint-disable */
     let listeCourses=[];
-      axios.get(`http://localhost:80/api.php?requete=SELECT_COURSES`).then((response) => {
+      axios.get(`/api.php?requete=SELECT_COURSES`).then((response) => {
         let listeNomCourses=response.data.courses.map(item => item.nom_courses);     
         let listeQteCourses=response.data.courses.map(item => item.qte_courses);  
         listeNomCourses.forEach((nom, index) => {
