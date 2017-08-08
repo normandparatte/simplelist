@@ -19,4 +19,4 @@ A noter que l'API doit se trouver à la racine du serveur, cependant afin de l'a
 
 ### Schéma récapitulatif
 Ci-dessous, un schéma expliquant les différentes technologies utilisées dans ce projet à l'exception de Node.js qui n'a pas été utilisé car ce dernier n'est pas supporté sur le serveur de production.
-<img src="./img_readme/schema_technologies.PNG" alt="Schéma des technologies utilisées" >
+<img src="./img_readme/schema_technologies.png" alt="Schéma des technologies utilisées" >
