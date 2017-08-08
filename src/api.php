@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------
 // ----- Connexion via PDO -----------------------------------------------
 // -----------------------------------------------------------------------
-$db = new PDO("mysql:host=localhost;dbname=app;charset=utf8", "root", "");
+$db = new PDO("mysql:host=localhost;dbname=simplelist;charset=utf8", "root", "");
 
 // -----------------------------------------------------------------------
 // ----- Diverses méthodes -----------------------------------------------
@@ -21,7 +21,7 @@ function safeInput($data) {
 // --------------------------------------------------------------------------
 $json = ['status' => 'ok'];
 
-if($_POST['REQUETE']=='SELECT_COURSES'){
+if($_POST['requete']=='SELECT_COURSES'){
   // ----- SELECT des courses
   $query = $db->query("SELECT * FROM courses");
 
@@ -38,7 +38,7 @@ if($_POST['REQUETE']=='SELECT_COURSES'){
     }
 
   }
-}else if($_POST['REQUETE']=='INSERT_COURSES'){
+}else if($_POST['requete']=='INSERT_COURSES'){
   // ----- INSERT d'une course
   $course = safeInput($_POST['course']);
   $qte = safeInput($_POST['qte']);
