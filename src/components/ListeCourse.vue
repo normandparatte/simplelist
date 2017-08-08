@@ -2,7 +2,7 @@
   <div>
     <h1>Liste des courses</h1>
     <div v-for="(course , index) in listeCourses" v-bind:key="course">
-      <h2>{{course.nom}}</h2>
+      <h2>{{course.qte}} - {{course.nom}}</h2>
     </div>
   </div>
 </template>
@@ -10,30 +10,24 @@
 <script>
 import axios from 'axios';
 export default {
-  data () {
+  created () {
     /* eslint-disable */
     let listeCourses=[];
-    /* listeCourses.push({
-      pk: 1,
-      nom: "Lait",
-      qte: 2       
-    });
-    listeCourses.push({
-      pk: 3,
-      nom: "Oeufs",
-      qte: 6       
-    }); */
-    axios.post(`./api.php`, {
-        requete: 'INSERT_COURSES',
-        course: 'Lait',
-        qte: 2
-      }).then((response) => {
-        // let ListeIds = response.data.results.map(item => item.id);
-        listeCourses=response.data.results;  
+      axios.get(`http://localhost:80/api.php?requete=SELECT_COURSES`).then((response) => {
+        let listeNomCourses=response.data.courses.map(item => item.nom_courses);     
+        let listeQteCourses=response.data.courses.map(item => item.qte_courses);  
+        listeNomCourses.forEach((nom, index) => {
+          listeCourses.push({
+            nom: listeNomCourses[index],
+            qte: listeQteCourses[index],
+          });
+        });
       }).catch(function (error) {
         console.log(error);
-      });
-    this.listeCourses=listeCourses;
+      });      
+    this.listeCourses=listeCourses;    
+  },
+  data(){
     return {
       listeCourses: []
     };
